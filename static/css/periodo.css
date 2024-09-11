@@ -1,0 +1,23 @@
+.custom-button {
+    width: 10rem; 
+    height: 10rem;
+    border-radius: 15%;
+    padding: 0%;
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+
+.custom-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.custom-button:hover {
+    transform: scale(1.1); /* Escalar al 110% en hover */
+}
+
+.rounded-input {
+    border-radius: 0.25rem;
+}
+

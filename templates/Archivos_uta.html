@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename='js/alerts.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/files.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/LOGO-UTA.png') }}">
+    <title>Archivos y Formatos</title>
+</head>
+
+<body style="background-color: #AFAFAF;">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid">
+                <a style="color: white;" class="navbar-brand" href="{{ url_for('Home') }}">Archivos & Formatos</a>
+                <button style="background-color: white;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: white;" class="nav-link active" aria-current="page" href="{{ url_for('alumno_vista') }}">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: white;" class="nav-link active" href="#" aria-current="page" data-bs-toggle="modal" data-bs-target="#Información">Información</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: white;" class="nav-link" href="{{ url_for('logout') }}">Cerrar Sesion</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container" >
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div style="width: 25%; position: fixed; top: 20%; right: 10%; z-index: 1050;" class="alert alert-{{ category }} alert-dismissible fade show flash-message" role="alert">
+                {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+        
+
+        <div style="margin-top: 40px;">
+            <div class="row">
+                {% for archivo in archivos %}
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{archivo.nombre}}</h5>
+                            <p class="card-text">{{archivo.descripcion}}<p>
+                            
+                            {% if archivo.extension == 'pdf' %}
+                            <a class="btn btn-info btn-sm" href="{{ url_for('ver_archivo', archivo_id=archivo._id) }}"><i class="bi bi-eye-fill"></i> Ver</a>
+                            {% endif %}
+                            <input type="hidden" value="{{archivo._id}}" id="archivo_id">
+                            <a href="{{ url_for('descargar_archivo', archivo_id=archivo._id) }}" class="btn btn-success btn-sm"><i class="bi bi-download"></i> Descargar</a> 
+
+
+                        </div>   
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="Información" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Información del apartado</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            En este apartado podras encontrar archivos, formatos o cualquier tipo de documentos referente a las estadias por las que cursas, todo porpocionados por el área de vinculación
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/borrar.js') }}"></script>
+</body>
+
+</html>

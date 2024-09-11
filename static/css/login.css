@@ -1,0 +1,176 @@
+html {
+    height: 100%;
+}
+  
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/static/img/LOGO-UTA.png");
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+}
+  
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+  
+.login-box .user-box {
+    position: relative;
+}
+  
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+.login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+  
+.login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+}
+
+
+body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Pseudo-elementos para las formas */
+ 
+body::before,
+body::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+
+body::before {
+    border-width: 400px 800px 0 100px; /* Top triangle */
+    border-color: rgba(36, 159, 36, 0.796) transparent transparent transparent;
+    top: 0%;
+    left: -20%;
+}
+
+
+body::after {
+    border-width: 0 100px 400px 800px; /* Bottom triangle */
+    border-color: transparent transparent rgba(0, 0, 255, 0.796) transparent;
+    bottom: 0%;
+    right: -20%;
+}
+
+
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
+    body::before {
+        width: 150px;
+        height: 150px;
+    }
+    body::after {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    body::before {
+        width: 100px;
+        height: 100px;
+    }
+    body::after {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    body::before, body::after {
+        display: none; /* Oculta las formas en pantallas muy pequeñas */
+    }
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 30px;
+        width: 80%;
+    }
+
+    .login-box form a {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .login-box h2 {
+        font-size: 24px;
+    }
+
+    .login-box form a {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}

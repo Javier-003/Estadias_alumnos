@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="icon" type="png" href="{{ url_for('static', filename='img/LOGO-UTA.png') }}">
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- Main Navigation -->
+    <nav class="main-nav" id="main-nav">
+        <div class="content-wrapper-sm">
+            <a href="{{ url_for( 'Home') }}" class="navbar-brand">EduLink</a>
+            <div id="menu-button">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for( 'login') }}">Iniciar Sesión</a></li>
+                <li><a href="{{ url_for( 'registro') }}">Registrarse</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main header -->
+    <header>
+        <!-- First replaceble image -->
+        <video class="img-absolute" autoplay muted loop>
+            <source src="/static/video/Universidad.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <div class="wrapper astonish animated fadeInDown">
+            <h1 ><strong style="color: rgb(30, 116, 192);">Edu</strong>Link</h1>
+            <h2>Una nueva forma de gestión. <br>
+                Creada por la Universidad Tecnológica de Acapulco.</h2>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main >
+        <div class="content-wrapper" id="about" style="background-color: rgba(63, 178, 255, 0.449);">
+            <!-- second replaceble image -->
+            <div class="grid">
+                <div class="grid-col-sm-12 grid-col-md-6 astonish" data-animation="fadeInLeft">
+                    <h2 class="section-title">Sobre el sistema</h2>
+                    <p>EduLink fue desarrollado con el proposito de solucionar uno de los problemas más notorios en la universidad.</p>
+                    <p>El manejo y entrega de la documentación de estadías llega a ser muy pesado y tedioso por partes de los alumnos como tambien quienes los reciben.</p>
+                    <p>Para lo cual se creo EduLink, buscando darle solución a esa problematica y esperando ser una mejora para la universidad, su alumno y sus diferentes departamentos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="reserve" style="background-color: rgba(60, 168, 241, 0.449);" class="content-wrapper-lg text-center astonish" data-animation="zoomIn">
+            <h2 class="section-title">Explora La Universidad</h2>
+            <p>Explora y desarrolla tus habilidades dentro de la UTA. Descubre todos nuestros planes de estudios que tenemos para ti.
+                Conoce más a profundida la universidad, visista nuestra pagina oficial</p>
+            <a href="https://utacapulco.edu.mx/" class="btn btn-outline-purple"
+                target="_blank">Visitar</a>
+        </div>
+        
+    </main>
+
+    <!-- Main footer -->
+    <footer>
+        <div class="content-wrapper-sm display-flex-between">
+            <!-- Easily replaceble copyright information -->
+            <small>Copyright © 2024  <a style="color: white;" href="https://utacapulco.edu.mx/">UNIVERSIDAD TECNOLÓGICA DE ACAPULCO</a> Todos los derechos reservados.</small>
+
+            <!-- Make sure to edit the links so that they go to your social media. -->
+            <div class="social-links">
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-snapchat-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+/* Estilos para el navbar */
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: #686868;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    padding: 14px 20px;
+}
+
+li#logout {
+    float: right;
+    padding-right: 90px;
+    padding-left: 40px;
+}
+
+li#logoutt {
+    float: right;
+}
+
+li#text { 
+    float: left;
+    color: white;
+    font-size: 20px; /* Tamaño de fuente más grande */
+    font-family: "Open Sans", sans-serif;
+    padding-left: 90px;
+    line-height: 40px; /* Alinear verticalmente con el enlace */
+}
+
+li a:hover {
+    background-color: #686868;
+}

@@ -1,0 +1,11 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-item {
+    flex: auto; /* Tres tarjetas por fila */
+}
+
+
+
